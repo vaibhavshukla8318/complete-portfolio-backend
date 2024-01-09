@@ -18,6 +18,7 @@ const port = process.env.PORT || 3000;
 const static_path =  path.join(__dirname, "../public");
 const template_path =  path.join(__dirname, "../templates/views");
 const partial_path =  path.join(__dirname, "../templates/partials");
+// const indexPath = path.join(__dirname, '../index.html');
 
 app.use(express.json());
 app.use(cookieParser());
@@ -29,7 +30,7 @@ app.set("views", template_path);
 hbs.registerPartials(partial_path)
 
 app.get("/", (req, res) => {
-    res.render("index.html")
+    res.sendFile(path.join(__dirname, "../index.html"));
 });
 
 app.get("/logout", auth, async(req, res) => {
