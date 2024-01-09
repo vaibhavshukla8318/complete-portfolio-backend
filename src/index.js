@@ -29,7 +29,7 @@ app.set("views", template_path);
 hbs.registerPartials(partial_path)
 
 app.get("/", (req, res) => {
-    res.render("index")
+    res.render("index.html")
 });
 
 app.get("/logout", auth, async(req, res) => {
